@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block main %}
+<style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 15px;
+      
+    }
+    </style>
+
+<table class="table">
+    <colgroup>
+        <col span="4" style="background-color: #00d6d6">
+      </colgroup>
+    <thead >
+      <tr>
+      
+        <th scope="col">Product ID</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product price</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for product in plist %}
+      <tr>
+        
+        <td>{{product.0}}</td>
+        <td>{{product.1}}</td>
+        <td>{{product.2}}</td>
+        <td>
+            <a href="/productdelete/{{product.0}}" class="btn btn-danger">Delete</a>
+            <a href="/productupdate/{{product.0}}" class="btn btn-warning">Update</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{%endblock main %}
